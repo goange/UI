@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+$base-font-color : #666;
+$bold-font-color : #333;
+$base-font-size : 400;
+
+//=======================================================
+// custom
+//=======================================================
+:root {
+  // iPhone X support
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+}
+
+//--------------
+//Color
+$point-color : #7272CB;
+$brand-primary:              $point-color;
+$brand-info:                 #EE61A5;
+$brand-success:              #76D96F;
+$brand-warning:              #FFAE36;
+$brand-danger:               #F87272;
+
+$btn-default-bg : #D0D0DE;
+
+//--------------
+//font
+$font-family-sans-serif:      'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+//--------------
+// breakpoint
+$desktop-max-width : 1600px;
+$tablet-max-width : 1600px;
+$mobile-max-width : 769px;
+
+
+//--------------
+// Layout
+$top-height : 60px; //navbar
+$mo-top-height : 50px; //mo navbar
+$mo-right-topbar-height : 43px; //mo right topbar
+
+$footer-height:60px;
+$sidebar-width : 250px;
+
+$content-width : calc(100% - 250px);
+$content-height : calc(100vh - #{$top-height});
+$content-title-height : calc(100vh - #{$top-height} - 43px);
+$contents-title-filter-height :calc(100vh - #{$top-height} - 43px - 50px);
+// $mo-content-height : calc(100vh - (#{$mo-top-height})); //100vh - (navbar + footer) 
+$mo-content-height : calc(100vh - (#{$mo-top-height} + #{$footer-height})); //100vh - (navbar + footer) 
+$mo-left-content-height : calc(100vh - (#{$mo-top-height} + #{$footer-height})); //100vh - (navbar + right-topbar + footer) 
+$mo-right-content-height : calc(100vh - (#{$mo-top-height} + #{$mo-right-topbar-height})); //100vh - (navbar + right-topbar) 
+
+// Sidebar
+$sidebar-font-size : 14px;
+$sidebar-font-color : #111;
+$sidebar-point-color : $point-color;
+$sidebar-font-color-active : $sidebar-point-color;
+
+//box
+$box-border-color: #f4f4f4;
+$box-border-radius: 6px;
+$box-footer-bg: #fff;
+$box-boxshadow: 0 1px 1px rgba(0, 0, 0, .1);
+$box-padding: 10px 40px !default;
+
+//--------------
+//z-index
+$zindex-modal : 9002;
+$zindex-modal-dimm : 9001;
+$zindex-sidebar : 999;
+$zindex-sidebar-mo : 9000;
+$zindex-navbar : 1050;
+$zindex-mo-topbar : 1060;
+$zindex-rightbar : 1040;
+$zindex-dimm : 8000;
+$zindex-panel-left : 1;
+$zindex-panel-right : 200;
+$zindex-panel-right-mo : 1040;
+$zindex-panel-filterbox : 5;
+$zindex-panel-left-tab : 121;
+$zindex-footer : 1000;
+$zindex-floating-btn-left : 190;
+$zindex-floating-btn-right : 290;
+$zindex-floating-btn : 999 ;
+$zindex-panel-left-filter : 120;
+$zindex-datetimepicker : 7000;
+

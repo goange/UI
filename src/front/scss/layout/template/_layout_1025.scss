@@ -1,0 +1,318 @@
+@charset "utf-8";
+
+/* 
+
+		.ui-skip
+
+		.wrap(or #wrap)
+			header.ui-header
+
+			aside.ui-sidebar
+
+			.container(or .content-wrap)
+				.content-header
+				.content-sidebar
+
+				.content(or #content)
+					.panel
+						.panel-top
+						.panel-left
+						.panel-right
+						.panel-bottom
+
+					.section
+						.section-header
+						.section-content
+							.section-wrap.full 
+						.section-footer
+
+					//module과 component, Elements 기능 분리
+					[module]
+						.list, table
+
+					[component]
+						accordion,  table, paging etc...
+
+					[Elements]
+
+					.card
+					.box
+					.area
+					.obj
+
+				.content-rightbar
+				.content-footer
+			footer.ui-footer
+			aside.ui-rightbar
+
+ */
+
+
+// $content-width : 1300px;
+$common-transition :  $common-transition !default;
+
+
+//content
+$top-height : $top-height;
+$content-height : $content-height;
+
+$mo-top-height : $mo-top-height;
+$mo-content-height : $mo-content-height;
+
+
+//---------------------------
+$project-class : 'ui-';
+
+
+$header-height : 60px;
+$sidebar-width: 250px;
+
+$content-width : 1150px;
+$rightbar-width: 360px;
+
+
+$navbar-height : 60px;
+
+
+
+/**
+* layout
+* ------------------
+*/
+
+body{background-color:#fff;overflow-x: hidden; overflow-y: auto;}
+
+@include mediaQuery(phone){
+	html,
+	body {position: relative; overflow-x: hidden;}
+}
+
+
+//--------------------
+//.container-fluid
+/* .container-fluid{margin-left:0; padding-left:0px; padding-right:0px; }
+.content .container-fluid{max-width:1300px;margin-left:0;}
+.navbar  .container-fluid{padding:0 20px;
+	@include mediaQuery(tablet_under){
+		padding: 0;
+	}
+} */
+
+
+
+
+//======================================
+// Structure
+//======================================
+
+//.wrapper
+.ui-wrap{position: relative;top: 0;height: 100vh;
+	&:after{display: table; clear: both; content: " "; }
+
+	/*
+	//ElseCase : Full Page 
+	&.wrapper-full-page{height: auto;
+		.content .container-fluid{max-width:100%;}
+	} */
+}
+
+
+//---------------------
+//header
+.ui-header{
+	// position: relative; max-height:$header-height; margin-left: $sidebar-width;
+	z-index: $zindex-navbar;position: fixed; left:$sidebar-width; right:0; top: 0;
+	@include transition(left .33s $common-transition 0s);
+
+	border: 1px solid #000;
+}
+
+
+//---------------------
+//navbar
+.navbar {
+	// z-index: $zindex-navbar;position: fixed; left:$sidebar-width; right:0;  
+	background-color:#fff; border-bottom:1px solid #D0D0DE;
+
+	/* 
+	//ElseCase : Full Page 
+	@include mediaQuery(phone){
+		height: $mo-top-height;
+	
+		border-bottom:0;
+	} */
+
+	// &:after{content:''; left:0; right:0; height:4px;background-color:$point-color;}
+}
+
+
+
+
+//---------------------
+//sidebar
+.ui-sidebar{
+	z-index: $zindex-sidebar; position: fixed; top: 0; bottom: 0; left: 0; width: $sidebar-width; 
+
+	@include transform-translate-x(0);
+	@include transition(transform .33s $common-transition 0s);
+
+	background: $white;border-right:1px solid #D0D0DE;
+
+	.btn-sidebar-close{
+		position:fixed; display:none;z-index:-1; right:-45px; top:10px; width:28px;height:28px; background:url($icon_close_white) 0 0 no-repeat;
+	}
+}
+
+//---------------------
+//.container
+.ui-container{
+	position: relative; height:100vh;
+	margin-left: $sidebar-width;
+
+	@include transition(margin .33s $common-transition 0s);
+
+	> .ui-content{
+		.content-wrap{
+			@include clearfix();
+			position:relative; width :100%; height : $content-height; top: initial; left: initial;margin-top: $navbar-height;
+		}
+	}
+}
+
+
+//---------------------
+//rightbar
+.ui-rightbar { 
+	z-index: $zindex-rightbar; position:fixed; left:initial; top:$top-height; bottom:0; width:$rightbar-width; 
+	box-shadow: 0 3px 6px 0 rgba(114, 114, 203, 0.15); background-color: orange;
+
+	right:-360px;
+	@include transition(right .33s $common-transition 0s);
+	// will-change: transform;
+		/* @include mediaQuery(tablet){
+		width:50%;
+	}
+	
+	@include mediaQuery(phone){
+		 top:$mo-top-height; width:100%;
+	} */
+}
+
+//---------------------
+//footer
+.ui-footer{
+	z-index:$zindex-footer; position:fixed; left:0;right:0; bottom:0; height:$footer-height; margin-left: $sidebar-width;
+	background-color:#fff; border: 1px solid #000;
+}
+
+
+//======================================
+// Responsive & Motion
+//======================================
+//sidebar
+body.sidebar-toggle{
+	.ui-sidebar{display: block; z-index: -1;
+		@include transform-translate-x(-$sidebar-width);
+		@include transition(transform .33s $common-transition 0s);
+	}
+
+	.ui-header{
+		// margin-left:0;
+		left: 0;
+		@include transition(left .33s $common-transition 0s);
+	}
+	// .navbar{
+	// 	left: 0;
+	// 	@include transition(left .33s $common-transition 0s);
+	// }
+
+	.ui-container{
+		margin-left: 0;
+		@include transition(margin .33s $common-transition 0s);
+	}
+}
+.sidebar-dimm{z-index:-1; opacity:0;}
+
+
+
+//======================================
+// Responsive
+//======================================
+@include mediaQuery(tablet_under){
+	body.sidebar-toggle-mo{
+		overflow:hidden;
+		body{overflow:hidden;}
+		.ui-sidebar{
+			@include transform-translate-x(0);
+
+			.btn-sidebar-close{
+				display: block;
+			}
+		}
+		#ui-toggleBtn{visibility:hidden;}
+	}
+
+
+	//---------------------
+	//navbar
+	.ui-header{
+		left: 0;
+		/* margin-left: 0; */
+	}
+	
+	//---------------------
+	//navbar
+	.navbar{
+		// left:0; 
+		.navbar-nav {flex-direction: row;}
+	}
+
+	//---------------------
+	//sidebar
+	.ui-sidebar{
+		position: fixed; display: block; top: 0; left: 0; right: auto; height: 100vh; width: $sidebar-width; z-index: $zindex-sidebar-mo; visibility: visible; overflow-y: visible; border-top: none; text-align: left; padding-right: 0px; padding-left: 0; box-shadow: none;
+		@include transform-translate-x(-$sidebar-width);
+
+		> ul {position: relative; z-index: 4; width: 100%; }
+		&::before{top: 0; left: 0; height: 100%; width: 100%; position: absolute; display: block; content: ""; }
+	}
+
+	//---------------------
+	//container
+	.ui-container {
+		margin-left: 0;
+	}
+
+	.sidebar-dimm{position: absolute;z-index:-1; top: 0;bottom:0; left: auto; right: 0;height: 100%; width: 100%;  background: rgba(0, 0, 0, 0.6); content: ""; overflow-x: hidden; opacity: 0;
+		@include transition(opacity .33s $common-transition 0s);
+		will-change: opacity;
+		&.visible{ z-index: $zindex-dimm; opacity: 1;}
+	}
+}
+
+
+//---------------------
+//rightbar
+body.rightbar-open .ui-rightbar{
+	right:0;
+	@include transition(right .33s $common-transition 0s);
+}
+
+
+
+
+
+//======================================
+// Handler
+//======================================
+#ui-toggleBtn {
+	position:relative;width:38px;height:38px;padding:0; border-radius: 50%;
+	&:after{content:''; position:absolute; top:50%; left:50%;width:28px;height:28px;background:url($icon_menu) 0 0 no-repeat; transform:translate(-50%, -50%);}
+}
+
+
+#ui-rightCloseBtn{
+	width:32px;height:32px; margin-left:15px;padding:0;
+	&:after{content:''; position:absolute; top:50%; left:50%; width:28px;height:28px; transform:translate(-50%, -50%);background:url($icon_close) 0 0 no-repeat;}
+	&.prev:after{content:''; position:absolute; top:50%; left:50%; width:28px;height:28px; transform:translate(-50%, -50%);background:url($icon_prev) 0 0 no-repeat;}
+}

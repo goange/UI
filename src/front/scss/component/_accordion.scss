@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/* ----------------------------------------
+* [button]
+* -----------------------------------------
+*/
+
+.accordion-list{border-top:1px solid #ddd;
+	.accordion-item{border:none; 
+		.accordion-header{position:relative;border-bottom:1px solid #ddd;
+			&:first-child{}
+			a{position:relative;display:block; padding:28px 50px 28px 20px; color: #111; font-size:16px;
+				&:after{position:absolute;content:'';top:36px; right:20px; background:url($accordion_arrow) center center no-repeat;width:20px; height:12px;transition: all .3s;transform: rotate(0deg); }
+			}
+		}
+
+		.accordion-con {display:none; padding:28px 20px;border-top:1px solid #ddd; background-color:#f7f7f7;}
+
+		&.active{ border:1px solid #111;/* border-top:none; */
+			.accordion-header {border-bottom:none;
+				a:after {transition: all .3s;transform: rotate(180deg);}
+			}
+		}
+
+
+
+	}
+}

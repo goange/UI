@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@import "util";
+@import "reboot";
+
+$base-font-color : $base-font-color;
+$bold-font-color : $bold-font-color;
+$base-font-size : $base-font-size;
+
+/*
+* reset custom
+* --------------
+*/
+
+// custom property using css variables// iPhone X support
+:root {
+	--safe-area-inset-top: env(safe-area-inset-top);
+	--safe-area-inset-bottom: env(safe-area-inset-bottom);
+}
+
+* {-webkit-overflow-scrolling:touch;}
+
+html, body {
+	padding-top: var(--safe-area-inset-top);
+	padding-bottom: var(--safe-area-inset-bottom);
+}
+
+body{color:$base-font-color;
+	font-size:$base-font-size;
+	font-weight:300;
+}
+
+// body{@include font-size(14);}
+caption{height: 0; overflow: hidden; font-size: 0; line-height: 0; text-indent: -20000px; padding:0;}
+dl,ul,ol,menu,li{list-style:none; padding:0;margin:0;}
+button{margin:0;padding:0;border:0;outline:0; cursor:pointer;}
+
+h2,h3,h4,h5,h6{color:$bold-font-color; font-size:16px; font-weight:500;}
+p{padding:0;margin:0;}
+
+//form
+label{display:block;position:relative; color:$bold-font-color; font-weight:500;}
+a, a:hover, a:active{color:$base-font-color;text-decoration:none;}
+
+
+
+
+
+
+

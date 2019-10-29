@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+/**
+* base.grid
+* ------------------
+*/
+
+.grid-wrap{@include clearfix();}
+
+.block {display:inline-block; width: 100%; min-width:100px !important; }
+.half {display:inline-block; width: 50%; min-width:100px !important; }
+
+.block + .block {margin-top: 10px; }
+.block + .btn ,
+.btn + .block {margin-top: 10px; }
+
+@include mediaQuery(phone){
+	.mo-block {display:inline-block; width: 100%; min-width:100px !important; }
+	.mo-half {display:inline-block; width: 50%; min-width:100px !important; }
+}
+
+
+// 개별 그리드 span================================
+//span1~12, mo_span1~12
+@for $c from 1 through $grid-column{
+	.span#{$c}{
+		@include clearfix();
+		$gutter : $grid-gutter;
+		$first : (($c / $grid-column) * 100) - $gutter;
+
+		&{
+			float:left;
+			width: $first;
+			margin-right: $gutter;
+			margin-bottom:$grid-bottom;
+		}
+
+		&.last{
+			width: $first + $gutter;
+		}
+	}
+}
+.last{float:right; margin-right:0;}
+
+@include mediaQuery(phone){
+	@for $c from 1 through $grid-column{
+		.mo-span#{$c}{
+			@include clearfix();
+			$gutter : $grid-gutter;
+			$first : (($c / $grid-column) * 100) - $gutter;
+
+			&{
+				float:left;
+				width: $first;
+				margin-right: $gutter;
+				margin-bottom:$grid-bottom;
+			}
+			&.mo-last{
+				width: $first + $gutter;
+			}
+		}
+	}
+
+	.last{float:left; margin-right:0;}
+	.mo-last{float:right; margin-right:0;}
+}
+
+
+
+
+//group grid ================================
+// .grid2, .grid12
+@for $n from 1 through $grid-column{
+	.grid#{$n}{@include gridGroup($n, $grid-gutter); }
+	.grid#{$n}.no-pad{@include gridGroup($n , 0); }
+}
+
+@include mediaQuery(phone){
+	@for $n from 1 through $grid-column{
+		.grid#{$n}, .grid#{$n}.no-pad{
+			& > *:nth-of-type(#{$n}n) {float:left;}
+		}
+	}
+
+	@for $n from 1 through $grid-column{
+		.mo-grid#{$n}{@include gridGroup($n , $grid-gutter);}
+		.mo-grid#{$n}.no-pad{@include gridGroup($n , 0);}
+	}
+}
+
+
+//Devide Grid  ================================
+//양쪽 정렬 grid6-6
+.grid-both{
+	@include clearfix();
+	&> :first-child{float:left;}
+	&> :last-child{float:right; margin-left:10px;}
+
+	@include mediaQuery(phone){
+	}
+}
+
+//grid1_11, grid11_1
+@for $c from 1 through $grid-column{
+	.grid#{$c}-#{$grid-column - $c} {
+		@include clearfix();
+		$gutter : $grid-gutter;
+		$first : (($c / $grid-column) * 100) - $gutter;
+		$second : (100 - $first) - $gutter;
+
+		& > * {
+			float:left;
+			width: $first;
+			margin-right: $gutter;
+			margin-bottom:$grid-bottom;
+		}
+
+		& > *:last-child {
+			float:right;
+			width: $second;
+			margin-right: 0;
+		}
+	}
+}
+
+//mo-grid1-11, mo-grid11-1
+@include mediaQuery(phone){
+	@for $c from 2 through $grid-column{
+		.mo-grid#{$c}-#{$grid-column - $c} {
+			@include clearfix();
+			$gutter : $grid-gutter;
+			$first : (($c / $grid-column) * 100) - $gutter;
+			$second : (100 - $first) - $gutter;
+
+			& > * {
+				float:left;
+				width: $first;
+				margin-right: $gutter;
+				margin-bottom:$grid-bottom;
+			}
+
+			& > *:last-child {
+				float:right;
+				width: $second;
+				margin-right: 0;
+			}
+		}
+	}
+}
+

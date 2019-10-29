@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+
+//---------------------------
+$project-class : 'ui-';
+
+
+/**
+* layout
+* ------------------
+*/
+
+body{background-color:#fff;}
+
+
+.#{$project-class}header{
+	background: skyblue; /* border: 1px solid #000; */ 
+}
+
+.navbar {
+	/* background-color:#fff; */ /* border-bottom:1px solid #D0D0DE; */
+}
+
+.#{$project-class}sidebar{
+	background:#f87272; border-right:1px solid #D0D0DE;
+}
+
+.#{$project-class}rightbar { 
+	box-shadow: 0 3px 6px 0 rgba(114, 114, 203, 0.15); background-color: orange;
+}
+
+.#{$project-class}container{
+	> .#{$project-class}content{
+		.content-wrap{
+
+		}
+	}
+}
+
+.#{$project-class}footer{
+	background-color:beige; 
+}
+
+
+//======================================
+// Responsive Tablet under
+//======================================
+@include mediaQuery(tablet_under){
+	body.sidebar-toggle-mo{
+		.#{$project-class}sidebar{
+		}
+	}
+
+	.#{$project-class}header{
+	}
+	
+	.navbar{
+	}
+
+	.#{$project-class}sidebar{
+		
+	}
+
+	.#{$project-class}container {
+		// margin-left: 0;
+	}
+
+	.#{$project-class}footer{
+	}
+}
+
+
+
+//======================================
+// Responsive PC
+//======================================
+//sidebar
+body.sidebar-toggle{
+
+	.#{$project-class}header{
+	}
+
+	.#{$project-class}container{
+	}
+}
+
+body.sidebar-toggle-mo{
+
+}
+
+//---------------------
+//rightbar
+body.rightbar-toggle {
+
+}
+
+
+
+
+

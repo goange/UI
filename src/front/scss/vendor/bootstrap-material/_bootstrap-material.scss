@@ -1,0 +1,143 @@
+// =========================================================
+// * Material Dashboard Pro - v2.1.0
+// =========================================================
+
+// * Product Page: https://www.creative-tim.com/product/material-dashboard-pro
+// * Copyright 2018 Creative Tim (http://www.creative-tim.com)
+
+// =========================================================
+
+// * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+
+// =======================================
+// Start variables (@import "variables";)
+
+@import "variables/colors";
+@import "variables/shadow";
+
+
+// ---------------------------------------
+@import "../../util/variables.material.base.scss"; //[Modify]
+// ---------------------------------------
+
+// Customized BS variables
+@import "variables/custom-forms";
+@import "variables/spacing";
+@import "variables/body";
+@import "variables/brand";
+@import "variables/buttons";
+@import "variables/card";
+@import "variables/code";
+@import "variables/dropdown";
+@import "variables/forms";
+@import "variables/list-group";
+@import "variables/nav";
+@import "variables/pagination";
+@import "variables/state";
+@import "variables/tables";
+@import "variables/tooltip";
+@import "variables/type";
+@import "variables/modals";
+
+// import their vars after customization for use below
+$enable-flex: true; // fully adopt flexbox layouts
+$enable-shadows: true; // enable shadows, set to false to turn off shadows
+
+// Core Bootstrap Variables
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+@import "variables/layout";
+@import "variables/menu";
+@import "variables/drawer";
+@import "variables/snackbar";
+
+
+// ---------------------------------------
+@import "../../util/variables.material.scss"; //[Modify]
+// ---------------------------------------
+
+// End variables
+// =======================================
+
+
+@import "mixins";
+// @import "mixins/social-buttons.scss";
+@import "core-bootstrap";
+
+// Core Components
+@import "buttons";
+@import "checkboxes";
+@import "radios";
+@import "badges";
+@import "forms";
+@import "input-group";
+// @import "images";
+// @import "navbar";
+// @import "pagination";
+// @import "pills";
+// @import "type";
+@import "tabs";
+// @import "tooltip";
+@import "popover";
+@import "modal";
+@import "misc";
+// @import "headers";
+// @import "alerts";
+// @import "footers";
+@import "dropdown";
+@import "progress";
+@import "togglebutton";
+@import "ripples";
+// @import "tables";
+// @import "info-areas";
+
+// Cards
+// @import "cards";
+// @import "cards/card-signup";
+// @import "cards/card-plain";
+// @import "cards/card-plain-extend";
+// @import "cards/card-stats";
+// @import "cards/card-testimonials";
+// @import "cards/card-profile";
+// @import "cards/card-blog";
+// @import "cards/card-product";
+// @import "cards/card-pricing";
+// @import "cards/card-collapse";
+// @import "cards/card-form-horizontal";
+// @import "cards/card-background";
+// @import "cards/card-rotate";
+
+// Components for PRO
+// @import "forms-extend";
+// @import "misc-extend";
+// @import "footers-extend";
+// @import "rtl";
+// @import "sidebar-and-main-panel";
+// @import "fixed-plugin";
+// @import "pages";
+// @import "timeline";
+// @import "social-buttons";
+
+//plugin css
+// @import "plugins/plugin-nouislider";
+@import "plugins/animate";
+// @import "plugins/sweetalert2";
+// @import "plugins/datatables.net";
+// @import "plugins/jquery.jvectormap";
+@import "plugins/plugin-datetime-picker";
+@import "plugins/plugin-fileupload";
+// @import "plugins/fullcalendar";
+// @import "plugins/wizard-card";
+// @import "plugins/chartist";
+@import "plugins/plugin-bootstrap-select";
+@import "plugins/perfect-scrollbar";
+@import "plugins/plugin-tagsinput";
+
+
+// example pages and sections
+// @import "example-pages";
+
+
+// @import "responsive";

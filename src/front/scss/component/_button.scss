@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/*
+* component.button
+* --------------
+*/
+$button-paddingX : 20px;
+$border-radius-sm : 4px;
+$bmd-line-height : 1.4rem;
+
+
+button{cursor:pointer;}
+
+//-----------------
+//btn-area
+.btn-area{
+	@include clearfix();
+	&.modal-content-btn{
+		text-align:center;
+		.btn{width:160px;}
+	}
+	&.filter-btnbox{text-align:center; margin-top:10px;
+		button{width:100%; max-width:320px;}
+	}
+
+	&.btn-step{margin-top:0;
+			.btn{
+				&:first-child{ float:left;
+					width:50px; height:50px;background:url($svg_icon_prev) center no-repeat #d0d0de;
+				}
+				&:last-child{float:right;
+					width:calc(100% - 60px);
+				}
+			}
+		}
+}
+
+.panel.right{
+	.btn-area{margin:40px auto 0; max-width:340px;
+		.btn{width:100%;}
+		&.grid2{
+			.btn{width:49%;}
+		}
+	}
+}
+
+
+.panel.top{
+	.btn-area{margin:40px auto 0; max-width:320px;
+		.btn{width:100%;}
+		&.grid2{
+			.btn{width:49%;}
+		}
+	}
+}
+
+
+
+//REC0303
+// .prev_btn{background:url($svg_icon_prev) center no-repeat #d0d0de;}
+
+.backup_emailbtn{font-size:14px; height:28px; line-height:28px; padding-right: 34px; color:#7272cb; background:url($svg_icon_mail) right center no-repeat;}
+
+
+//----------------
+.btn{
+	position: relative;
+	margin: $bmd-btn-margin-bottom 0;
+	font-size: 14px; //  12px
+	font-weight: 400;
+	text-transform: none;
+	box-shadow: none;
+
+
+	//---
+	// btn-raised
+	&.btn-raised,
+	.btn-group-raised & {
+		// baseline shadow
+		// @include box-shadow($bmd-shadow-2dp);
+
+		// reverse any of the above for links
+		&.btn-link {
+			box-shadow: none;
+			@include bmd-hover-focus-active() {
+				box-shadow: none;
+			}
+		}
+
+		@include bmd-disabled() {
+			box-shadow: none;
+		}
+	}
+
+	//---
+	// btn-outline
+	@include bmd-outline-button-color();
+
+	//------
+	// Size
+	&.btn-xg,
+	.btn-group-xg & {
+		@include button-size(20px, $button-paddingX, 18px, 20px, $border-radius-sm);
+		// font-weight:bold;
+	}
+
+	&.btn-lg,
+	.btn-group-lg & {
+		@include button-size(16px, $button-paddingX, 14px, 18px, $border-radius-sm);
+		 font-weight:normal;
+		@include mediaQuery(phone){
+			@include button-size(18px, 5px, 16px, 18px, $border-radius-sm);
+		}
+	}
+
+	&{
+		@include button-size(12px, $button-paddingX, 14px, 16px, $border-radius-sm);
+		font-weight:normal;
+	}
+
+	@include mediaQuery(phone){
+		&{
+			padding: 12px 12px;
+		}
+	}
+
+	&.btn-sm,
+	.btn-group-sm & {
+		@include button-size(8px, $button-paddingX, 14px, 14px, $border-radius-sm);
+		font-weight:normal;
+	}
+
+	&.btn-xs,
+	.btn-group-xs & {
+		@include button-size(6px, $button-paddingX, 12px, 14px, $border-radius-sm);
+		font-weight:normal;
+	}
+
+	//------
+	&.btn-round {
+		border-radius: 50px;
+	}
+}
+
+.btn.noeffect{
+	&,
+	&:focus,
+	&:hover {border:none; background-color: none; box-shadow: none; }
+}
+
+
+
+.btn.btn-outline-info{background-color:#fff;
+	&:hover, &:focus{background-color:#fff;}
+}

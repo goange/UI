@@ -1,0 +1,149 @@
+
+.nav-tabs {
+    border: 0;
+    border-radius: $border-radius-base;
+    padding: 0;
+    height:50px; line-height:50px; border-bottom:1px solid #d0d0de;
+    &.tab-type02{
+      //REC304
+      // height:80px; line-height:80px;
+        .nav-item {
+          .nav-link {
+              font-size: 14px;text-align: center;
+              position: relative;
+              color: #343434;
+              border: 0;
+              margin: 0;
+              line-height: $mdb-btn-font-size-base * 2;
+              padding: 10px 0;
+              background-color: transparent;
+              transition: 0.3s background-color 0s;
+
+              &:hover {
+                  border: 0;
+              }
+          }
+          .nav-link,
+          .nav-link:hover,
+          .nav-link:focus {
+              border: 0 !important;
+              color: #343434;
+              font-weight: $font-weight-bold;
+          }
+          &.disabled .nav-link,
+          &.disabled .nav-link:hover {
+              color: rgba(255,255,255,0.5);
+          }
+
+          .material-icons{
+              margin: -1px 5px 0 0;
+          }
+          
+          .nav-link.active{
+              transition: 0.3s background-color 0.2s;
+              font-size: 14px; font-weight: bold; color: #7272cb;
+          }
+          .nav-link span{
+            display:inline-block;
+            background:#f3f3f7;
+            color:#343434;
+            font-size:14px; 
+            min-width:28px; 
+            height:28px; 
+            line-height:28px;
+            border-radius: 28px; 
+            padding:0 10px;
+            font-weight:bold;
+            margin-top:2px;
+          }
+          .nav-link.active span{
+            display:inline-block;
+            background:#7272cb;
+            color:#fff;
+
+          }
+          .nav-link.active:after{
+          display:none;}
+      }
+    }  
+    .nav-item {
+        .nav-link {
+            font-size: 14px;text-align: center;
+            position: relative;
+            color: #343434;
+            border: 0;
+            margin: 0;
+            line-height: $mdb-btn-font-size-base * 2;
+            padding: 10px 0;
+            background-color: transparent;
+            transition: 0.3s background-color 0s;
+
+            &:hover {
+                border: 0;
+            }
+        }
+        .nav-link,
+        .nav-link:hover,
+        .nav-link:focus {
+            border: 0 !important;
+            color: #343434;
+            font-weight: $font-weight-bold;
+        }
+        &.disabled .nav-link,
+        &.disabled .nav-link:hover {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .material-icons{
+            margin: -1px 5px 0 0;
+        }
+
+        .nav-link.active{
+            transition: 0.3s background-color 0.2s;
+            font-size: 14px; font-weight: bold; color: #7272cb;
+        }
+        .nav-link.active:after{
+          content:"";display:block;position:absolute; top:36px; left:50%; margin-left:-3px; width: 6px;height: 6px; border-radius:12px; background-color: #7272cb;}
+    }
+}
+.nav-tabs.list-2 .nav-item{width:50%;}
+.nav-tabs.list-3 .nav-item{width:33.3334%;}
+.nav-tabs.list-4 .nav-item{width:25%;}
+
+
+.nav-tabs {
+  .nav-link {
+    border-bottom: $bmd-nav-tabs-border-size solid transparent;
+  }
+
+  // colors
+  @include bmd-tabs-color($bmd-nav-tabs-color, $bmd-nav-tabs-active-color, $bmd-nav-tabs-active-border-color, $bmd-nav-tabs-disabled-link-color, $bmd-nav-tabs-disabled-link-color-hover);
+
+  &.header-primary {
+    @include bmd-tabs-color($bmd-nav-tabs-primary-color, $bmd-nav-tabs-primary-active-color, $bmd-nav-tabs-primary-active-border-color, $bmd-nav-tabs-primary-disabled-link-color, $bmd-nav-tabs-primary-disabled-link-color-hover);
+  }
+
+  &.bg-inverse {
+    @include bmd-tabs-color($bmd-nav-tabs-inverse-color, $bmd-nav-tabs-inverse-active-color, $bmd-nav-tabs-inverse-active-border-color, $bmd-nav-tabs-inverse-disabled-link-color, $bmd-nav-tabs-inverse-disabled-link-color-hover);
+  }
+}
+
+
+
+.card-nav-tabs{
+    margin-top: 45px;
+
+    .card-header{
+        margin-top: -30px !important;
+    }
+}
+
+.tab-content .tab-pane .td-actions{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card .tab-content .form-check{
+  margin-top: 6px;
+}

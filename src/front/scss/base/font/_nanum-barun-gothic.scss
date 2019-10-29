@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/*
+* font.Noto Sans.latin
+* --------------
+*/
+
+
+$font-path : '../font/NanumBarunGothic/';
+
+
+@font-face {
+	font-family: 'NanumBarunGothic';
+	font-weight: 400;
+	src: url($font-path + 'NanumBarunGothicLight.eot');
+	src: url($font-path + 'NanumBarunGothicLight.eot?#iefix') format('embedded-opentype'),
+		url($font-path + 'NanumBarunGothicLight.woff') format('woff'),
+		url($font-path + 'NanumBarunGothicLight.ttf') format('truetype');
+	}
+@font-face {
+	font-family: 'NanumBarunGothic';
+	font-weight: 500;
+	src: url($font-path + 'NanumBarunGothic.eot');
+	src: url($font-path + 'NanumBarunGothic.eot?#iefix') format('embedded-opentype'),
+		url($font-path + 'NanumBarunGothic.woff') format('woff'),
+		url($font-path + 'NanumBarunGothic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NanumBarunGothic';
+	font-weight: 700;
+	src: url($font-path + 'NanumBarunGothicBold.eot');
+	src: url($font-path + 'NanumBarunGothicBold.eot?#iefix') format('embedded-opentype'),
+		url($font-path + 'NanumBarunGothicBold.woff') format('woff'),
+		url($font-path + 'NanumBarunGothicBold.ttf') format('truetype');
+}

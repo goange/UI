@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/**
+* base.reset
+* --------------
+* @author : 이원익;
+*/
+
+// custom property using css variables// iPhone X support
+:root {
+	--safe-area-inset-top: env(safe-area-inset-top);
+	--safe-area-inset-bottom: env(safe-area-inset-bottom);
+}
+
+html * { -webkit-overflow-scrolling:touch;}
+html, body{box-sizing:border-box;height:100%;}
+html{-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-size:14px;line-height:1.4em;}
+html.ezbank{font-size:16px}
+body{background-color:#fff;color:#333; font-family:'Noto Sans Korean','Malgun Gothic','Apple Gothic',AppleGothic,돋움,Dotum,Sans-serif;position:relative;}
+body.modal{/*position:fixed*/position:relative;}
+body.modal:before{content:'';display:block;position:fixed;width:100%;height:100%;background:url('../img/common/bg_modal.png') repeat left center;z-index:1001;}
+body.modal .fixed_cont,
+body.modal .wrap_popup_title .popup_title{z-index:999;}
+body.big{font-size:2em}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,menu,footer,blockquote,optgroup{margin:0;padding:0;line-height:1.4em;box-sizing:border-box;font-family:'Noto Sans Korean','Malgun Gothic','Apple SD Gothic Neo',AppleGothic,돋움,Dotum,Sans-serif;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display: block;margin:0;padding:0;box-sizing:border-box;}
+audio,canvas,progress,video{display: inline-block;vertical-align: baseline;box-sizing:border-box;}
+div{box-sizing:border-box}
+audio:not([controls]){display: none;  height: 0;}
+[hidden],template{display: none;}
+a{background-color: transparent;cursor:pointer}
+a:active,a:hover{outline: 0;}
+b,strong{font-weight: bold;color:#111}
+dfn{font-style: italic;}
+h1, h2, h3, h4, h5, h6{ font-size: 1em;}
+mark{background: #ff0;color:#000;}
+small{font-size: 80%;}
+sub,sup{font-size: 75%;line-height: 0;position: relative;/*vertical-align: baseline;*/}
+sub{vertical-align:baseline;}
+sup{vertical-align:super;}
+img{border: 0;display:inline-block;vertical-align:top;}
+svg:not(:root){overflow: hidden;}
+figure{margin: 1em 40px;}
+hr{box-sizing: content-box;height: 0;}
+pre{overflow: auto;}
+code,kbd,pre,samp{font-family: monospace, monospace;font-size: 1em;}
+iframe{border:0}
+button{overflow: visible;font-size:inherit}
+button,select{text-transform: none;}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance: button;cursor: pointer;}
+button[disabled],html input[disabled]{cursor: default;}
+button::-moz-focus-inner,input::-moz-focus-inner,legend{border: 0;padding: 0;}
+input{line-height: normal;}
+input[type="checkbox"],input[type="radio"]{box-sizing: border-box;padding: 0;}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height: auto;}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance: none;}
+textarea{overflow: auto;}
+ul,ol,li{list-style:none}
+em,address{font-style:normal}
+a{color:inherit;text-decoration:none}
+table{border-collapse:collapse;border-spacing: 0;}
+caption{height: 0; overflow: hidden; font-size: 0; line-height: 0; text-indent: -20000px;}
+:focus{outline:0}

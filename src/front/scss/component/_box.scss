@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/*
+* component.box
+* --------------
+*/
+
+//===========================================================
+// Box Layout
+//===========================================================
+.box{margin-bottom: 5px; padding:0 0 15px ;
+	&-header,
+	&-body,
+	&-footer{
+		position:relative;
+		@include clearfix(); padding:0 40px;
+		@include mediaQuery(phone){padding:0 30px; }
+	}
+
+	&-header{padding-top:40px;
+		&.full{padding:0;padding-top:15px;}
+	}
+
+	&-body{padding-top:40px; padding-bottom:13px;
+		&.full{padding:0;padding-top:0; padding-bottom:30px;}
+	}
+
+	&-footer{
+		padding-top:15px;
+		padding-bottom:20px;
+	}
+
+	&-header + &-body{padding-top:25px;}
+	&-header + &-body + &-footer{margin-top:25px;}
+}
+
+.box +.box{margin-bottom:5px;}
+
+//===========================================================
+// Box
+//===========================================================
+.box {position: relative;width: 100%; 
+	.box-con{
+		position: relative;width: 100%; background: #ffffff; 
+		@include clearfix();
+		@include shadow-small();
+		@include border-radius-se($box-border-radius);
+	}
+
+	// collapsed mode
+	&.collapsed-box{
+		.box-con{display:none;}
+	}
+
+	// fixed height to 300px
+	&.height-control {
+		.box-body {max-height: 300px; overflow: auto;}
+	}
+	.border-right {border-right: 1px solid $box-border-color; }
+	.border-left {border-left: 1px solid $box-border-color; }
+}
+
+.box,
+.overlay-wrapper {
+	> .overlay,
+	> .loading-img {position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+	.overlay {z-index: 50; background: rgba(255, 255, 255, 0.7);
+		@include border-radius-se($box-border-radius);
+		> .fa {position: absolute; top: 50%; left: 50%; margin-left: -15px; margin-top: -15px; color: #000; font-size: 3rem; }
+	}
+
+	.overlay.dark {background: rgba(0, 0, 0, 0.5); }
+}
+
+
+//===========================================================
+// Box top, Dashboard-Header
+//===========================================================
+.box-top {@include border-radius-se($box-border-radius);}
+
+.box-top,
+.dashboard-header {position: relative; color: #000; display: block; padding-bottom:32px;
+	.box-title {display: inline-block;font-size: 2.6rem; line-height:1.2;font-weight:bold; color:#000; margin: 0; margin-right: 30px; word-break: break-all;  vertical-align: middle;
+	}
+	@include mediaQuery(phone){
+		.box-title {font-size:2.2rem;}
+	}
+}
+
+
+//===========================================================
+// Box header
+//===========================================================
+.box-header {position: relative; color: #000; display: block; 
+	&.with-border {border-bottom: 1px solid $box-border-color;
+		.collapsed-box & {border-bottom: none; }
+	}
+	&.border-seperate {padding-bottom:30px;border-bottom:15px solid #f0f3f6;}
+
+	&.full{
+		.title-area{padding:25px 40px 15px; margin-bottom:0;}
+	}
+
+	//Icons and box title
+	.box-title {display: inline-block;font-size: 2rem;font-weight:bold; color:#000; margin: 0; line-height:1;word-break: break-all; }
+	.h3-title{display:inline-block;word-break: break-all;}
+	.desc{font-size: 2rem; display:inline-block;color:#000;line-height:1; }
+	.right-form{width:150px;float:right;margin-top:-5px;}
+}
+
+
+//===========================================================
+// Box Body
+//===========================================================
+.box-body {
+	@include border-radius-se(0, 0, $box-border-radius, $box-border-radius);
+	.no-header & {@include border-top-radius($box-border-radius); }
+	// Tables within the box body
+	> .table {margin-bottom: 0; }
+	&.border-seperate {padding-bottom:30px;border-bottom:15px solid #f0f3f6;}
+}
+
+//===========================================================
+// Box footer
+//===========================================================
+.box-footer {border-top: 1px solid $box-border-color;  background-color: $box-footer-bg;
+	@include border-radius-se(0, 0, $box-border-radius, $box-border-radius);
+}
+

@@ -1,0 +1,193 @@
+@charset "utf-8";
+
+//------------------------------------
+// breakPoint
+//------------------------------------
+@mixin mediaQuery($screen-width){
+	$breakpoint-mo : 720px;
+	$breakpoint-tablet : 990px;
+ 
+	@if $screen-width =='phone'{
+		@media (min-width: 0px) and (max-width: $breakpoint-mo){
+			@content;
+		}
+	}
+	@else if $screen-width =='tablet'{
+		@media (min-width: ($breakpoint-mo + 1)) and (max-width: $breakpoint-tablet){
+			@content;
+		}
+	}
+	@else if $screen-width =='pc'{
+		@media screen and(min-width : ($breakpoint-tablet + 1)){
+			@content;
+		}
+	}
+
+	@else if $screen-width =='tablet_under'{
+			@media (min-width: 0px) and (max-width: $breakpoint-tablet){
+			@content;
+		}
+	}
+
+	@else if $screen-width =='max'{
+		@media screen and(min-width : 1560px){
+			@content;
+		}
+	}
+}
+
+//------------------------------------
+// Grid
+//------------------------------------
+$grid-column : 12;
+$grid-gutter : 1%;
+$grid-bottom : 4px;
+
+@mixin gridGroup($_grid:2, $_pad:1){
+	@include clearfix();
+		$gutter : $_pad;
+		$width : (100% / $_grid) - $gutter;
+		$mgutter : (100% - ($width * $_grid)) / ($_grid - 1);
+		@if $_grid == 1 {
+			$mgutter : 0
+		}
+
+		& > * {
+			float:left;
+			width: $width;
+			margin-right: $mgutter;
+			margin-bottom:$grid-bottom;
+		}
+		& > *:nth-of-type(#{$_grid}n) {
+			float:right;
+			margin-right: 0;
+		}
+}
+
+
+
+//------------------------------------
+// Util
+//------------------------------------
+@mixin clearfix {
+	&::after {
+		display: block;
+		content: "";
+		clear: both;
+	}
+}
+
+//------------------------------------
+// transition
+//------------------------------------
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	transition: $transition;
+}
+
+$common-transition : cubic-bezier(0.685, 0.0473, 0.346, 1);
+@mixin common-transition($delay : 0s){
+	transition:all .33s $common-transition $delay;
+	// transition:all .33s cubic-bezier(0.685, 0.0473, 0.346, 1) $delay;
+}
+
+@mixin transitions-property($property, $time, $type){
+	-webkit-transition: $property $time $type;
+	-moz-transition: $property $time $type;
+	-o-transition: $property $time $type;
+	-ms-transition: $property $time $type;
+	transition: $property $time $type;
+}
+
+@mixin transform-translate-x($value){
+	-webkit-transform:  translate3d($value, 0, 0);
+	-moz-transform: translate3d($value, 0, 0);
+	-o-transform: translate3d($value, 0, 0);
+	-ms-transform: translate3d($value, 0, 0);
+	transform: translate3d($value, 0, 0);
+}
+
+@mixin transform-translate-y($value){
+	-webkit-transform:  translate3d(0,$value, 0);
+	-moz-transform: translate3d(0, $value, 0);
+	-o-transform: translate3d(0, $value, 0);
+	-ms-transform: translate3d(0, $value, 0);
+	transform: translate3d(0, $value, 0);
+}
+
+//------------------------------------
+// shadow
+//------------------------------------
+@mixin shadow-big(){
+	$penumbra-opacity: 0.14 !default;
+	$ambient-opacity: 0.12 !default;
+	$umbra-opacity: 0.2 !default;
+	box-shadow: 0 16px 38px -12px rgba(0, 0, 0, $penumbra-opacity * 4),
+	0  4px 25px 0px rgba(0, 0, 0, $ambient-opacity),
+	0  8px 10px -5px rgba(0, 0, 0, $umbra-opacity);
+}
+@mixin shadow-middle(){
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, .1),
+	0 1px 10px -5px rgba(#000, 0.08)
+}
+@mixin shadow-small(){
+	box-shadow: 0 1px 10px 0px rgba(0, 0, 0, .04),
+	0 1px 10px -5px rgba(#000, 0.02)
+}
+@mixin shadow-none(){
+	box-shadow: none;
+}
+
+//------------------------------------
+// Box
+//------------------------------------
+@mixin border-radius-se($radius...) {
+	@if length($radius) < 4 {
+		border-radius: $radius;
+		} @else {
+			@include border-radius-norm($radius...);
+		}
+	}
+//Different radius each side
+@mixin border-radius-norm($top-left, $top-right, $bottom-left, $bottom-right) {
+	border-top-left-radius: $top-left;
+	border-top-right-radius: $top-right;
+	border-bottom-right-radius: $bottom-right;
+	border-bottom-left-radius: $bottom-left;
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin box-sizing($boxmodel) {
+	-webkit-box-sizing: $boxmodel;
+		 -moz-box-sizing: $boxmodel;
+					box-sizing: $boxmodel;
+}
+
+
+//------------------------------------
+// Opacity
+//------------------------------------
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	// IE8 filter
+	$opacity-ie: ($opacity * 100);
+	filter: #{alpha(opacity=$opacity-ie)};
+}
+
+@mixin black-filter($opacity){
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: rgba(17,17,17,$opacity);
+	display: block;
+	content: "";
+	z-index: 1; 
+}
+
+

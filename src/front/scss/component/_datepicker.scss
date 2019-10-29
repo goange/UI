@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+/*
+* date-picker
+* --------------
+*/
+
+.form-date{position:relative;
+	&:after{content:''; position:absolute; z-index:0;right:0; top:4px;background:url($icon_calendar ) center center no-repeat;width:28px; height:28px;}
+	.split{position: absolute; right: -12%; top: 8px; font-size:14px;}
+}
+
+.date-set{@include clearfix(); position:relative; 
+	.form-group{
+		&:first-child{width:45%; float:left;}
+		&:last-child{width:45%; float:right;}
+	}
+}

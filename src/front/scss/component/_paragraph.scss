@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+/* ----------------------------------------
+* [button]
+* -----------------------------------------
+*/
+
+.page {color:#333; font-weight:400;}
+
+//Title
+.strong16{font-size:16px;color:$strong-font-color; font-weight:bold; }
+.strong20{font-size:20px;color:$strong-font-color;font-weight:bold;}
+.strong24{font-size:24px;color:$strong-font-color;font-weight:bold;}
+.strong30{font-size:30px;color:$strong-font-color;font-weight:bold;}
+.strong40{font-size:40px;color:$strong-font-color;font-weight:bold; line-height:1.3;} 
+
+
+@include mediaQuery(phone){
+	.strong40{font-size:25px;} 
+}
+
+
+.bold16{font-size:16px;color:$strong-font-color; font-weight:400;}
+.bold20{font-size:20px;color:$strong-font-color;}
+.bold30{font-size:30px;color:$strong-font-color;}
+.bold40{font-size:40px;color:$strong-font-color;}
+
+.light14{font-size:14px;color:#999;}
+.light16{font-size:16px;color:#999;}
+.light20{font-size:20px;color:#999;}
+.light30{font-size:30px;color:#999;}
+
+
+@include mediaQuery(phone){
+	.mo-strong16{font-size:16px;color:$strong-font-color; font-weight:bold;}
+	.mo-strong20{font-size:20px;color:$strong-font-color;font-weight:bold;}
+	.mo-strong25{font-size:25px;color:$strong-font-color;font-weight:bold;}
+	.mo-strong30{font-size:30px;color:$strong-font-color;font-weight:bold;}
+	.mo-strong40{font-size:40px;color:$strong-font-color;font-weight:bold; line-height:1.3;} 
+
+	.mo-bold16{font-size:16px;color:$strong-font-color; font-weight:400;}
+	.mo-bold20{font-size:20px;color:$strong-font-color;}
+	.mo-bold30{font-size:30px;color:$strong-font-color;}
+	.mo-bold40{font-size:40px;color:$strong-font-color;}
+}
+
+
+
+.h2-title{font-size:40px; color:#111;font-weight:bold;}
+.h3-title{font-size:30px; color:#111; font-weight:400;}
+.h4-title{font-weight:bold;}
+.h5-title{}
+
+.en-title{color:#333; font-size:16px;line-height:24px; font-weight:bold;}
+.en-txt{padding-left:3px;color:#999; font-size:12px;line-height:24px; vertical-align:baseline;font-weight:normal;}
+
+//타이틀 위로
+.section.full,
+.visual_con{
+	.h2-title.top-fix{position:absolute;left:0;top:-30px;}
+	.h3-title.top-fix{position:absolute;left:0;top:-25px;}
+}
+
+
+
+//point-txt
+.point-color{color:$point-color;}
+
+//font-color
+.fc-strong{color:#111;}
+.fc-bold{color:#333;}
+.fc-normal{color:#666;}
+.fc-light{color:#999;}
+
+//------------------------
+//Link
+
+.link-underline{position:relative;display:inline-block;font-size:16px; font-weight:500; @include txt_hover(#111);text-decoration:underline;
+	&:hover{@include txt_hover(#218795); text-decoration:underline;}
+	// &:after{position:absolute;content:''; left:-2px;right:-2px;bottom:0;height:1px;background-color:#111;}
+}
+// pointcolor
+.link-txt{@include txt_hover($point-color);text-decoration:underline;
+	&:hover{@include txt_hover(#218795); text-decoration:underline; }
+}
+

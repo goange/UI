@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+//------------------------------------
+// bootstrap
+//------------------------------------
+
+$font-family-base : 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-size-base:              1.4rem !default; // Assumes the browser default, typically `16px`
+
+
+$font-weight-base : 400 !default;;
+$font-weight-bold:            700 !default;
+
+$line-height-base : 1.5 !default;;
+
+$body-color : #333 !default;
+$body-bg : #fff !default;
+
+$spacer: 1rem !default;
+
+$headings-margin-bottom :  ($spacer / 2) !default;;
+$paragraph-margin-bottom:   1rem !default;
+
+$dt-font-weight : $font-weight-bold !default;
+
+$link-color:                 #007bff !default;
+$link-decoration:           none !default;
+$link-hover-color:          darken($link-color, 15%) !default;
+$link-hover-decoration:     underline !default;
+
+$table-cell-padding:          .75rem !default;
+$text-muted:                  #6c757d !default;
+
+
+// stylelint-disable indentation
+
+// Hover mixin and `$enable-hover-media-query` are deprecated.
+//
+// Origally added during our alphas and maintained during betas, this mixin was
+// designed to prevent `:hover` stickiness on iOS—an issue where hover styles
+// would persist after initial touch.
+//
+// For backward compatibility, we've kept these mixins and updated them to
+// always return their regular psuedo-classes instead of a shimmed media query.
+//
+// Issue: https://github.com/twbs/bootstrap/issues/25195
+
+@mixin hover {
+  &:hover { @content; }
+}
+
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin plain-hover-focus {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin hover-focus-active {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+
+
+
+//------------------------------------
+// breakPoint
+//------------------------------------
+//  @mixin mediaQuery($screen-width){
+// 	$breakpoint : 991px;
+// 	$phone : 320px;
+// 	$pc : 1485px;
+// 	@if $screen-width =='phone'{
+// 		@media screen and(max-width : $breakpoint){
+// 			@content;
+// 		}
+// 	}
+// 	@else if $screen-width =='pc'{
+// 		@media screen and(min-width : $breakpoint){
+// 			@content;
+// 		}
+// 	}
+
+
+// 	@else if $screen-width =='phone-half'{
+// 		@media screen and(min-width : $phone) and(max-width: $breakpoint){
+// 			@content;
+// 		}
+// 	}
+// 	@else if $screen-width =='pc-half'{
+// 		@media screen and(min-width : $breakpoint) and(max-width: $pc){
+// 			@content;
+// 		}
+// 	}
+// }
+ 
+
+

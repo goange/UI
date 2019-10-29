@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+
+/* ------------------------------------
+* paging
+*------------------------------------*/
+
+.paging{text-align: center; @include clearfix;  margin-top:40px;
+	li{display:inline-block;}
+	a{float:left; min-height:34px; min-width:34px; line-height:31px; text-align:center;
+		background-color: #fff; color: #666;font-size:14px;
+		&.on{color:#417bcb; text-decoration:underline;}
+		&.on:hover{text-decoration:underline;}
+		&:hover{@include menu_hover(#efefef); text-decoration:underline;}
+	}
+	.btn_first, .btn_prev, .btn_next,.btn_last{color:rgba(0, 0, 0, 0);background:url($imgpath + 'common/page.png') 0 center no-repeat;font-size:0; border:solid 1px #ccc; }
+	.btn_first{background-position:-3px}
+	.btn_prev{background-position:-45px}
+	.btn_next{background-position:-87px}
+	.btn_last{background-position:-129px}
+
+	@include mediaQuery(phone){
+		a{min-width:30px;}
+		.btn_first{background-position:-6px}
+		.btn_prev{background-position:-48px}
+		.btn_next{background-position:-90px}
+		.btn_last{background-position:-132px}
+	}
+
+
+}
+
+

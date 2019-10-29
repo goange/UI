@@ -1,0 +1,278 @@
+@charset "utf-8";
+
+/**
+* base.magic
+* ------------------
+*/
+
+//------------------------------------
+// Magic Class
+//------------------------------------
+// https://docs.emmet.io/cheat-sheet/
+
+	.clearfix {*zoom:1;//IE5.5~7 브라우저 대응 Hack
+		&:before, &:after{display:block; clear:both; content:"";} //표준브라우저
+	}
+	.blind{position:absolute;display: inline-block;font-size: 1px;width: 1px;height: 1px;padding: 0;margin: -1px;text-indent: -9999px;visibility: hidden;overflow: hidden;border: 0;clip: rect(0,0,0,0);}
+
+	//Visual Formatting
+	.pos-r {position:relative !important;}
+	.pos-a {position:absolute !important;}
+	.pos-f {position:fixed !important;}
+	.pos-s {position:static !important;}
+
+	.fl-l, .fl {float:left !important}
+	.fl-r, .fr {float:right !important}
+	.fl-n, .fn {float:none !important;}
+
+	.cl{clear:both !important;}
+	.cl-n{clear:none !important;}
+	.cl-l{clear:left !important;}
+	.cl-r{clear:right !important;}
+	.cl-b{clear:both !important;}
+
+	.d-b, .db {display:block !important;}
+	.d-n{display:none !important;}
+	.d-f{display:flex !important;}
+	.d-if{display:inline-flex !important;}
+	.d-i{display:inline !important;}
+	.d-ib{display:inline-block !important;}
+	.d-li{display:list-item !important;}
+	.d-tb{display:table !important;}
+	.d-itb{display:inline-table !important;}
+	.d-tbcl{display:table-column !important;}
+	.d-tbr{display:table-row !important;}
+	.d-tbc{display:table-cell !important;}
+
+	.v-v{visibility:visible !important;}
+	.v-h{visibility:hidden !important;}
+	.v-c{visibility:collapse !important;}
+
+	.ov-v{overflow:visible !important;}
+	.ov-h{overflow:hidden !important;}
+	.ov-s{overflow:scroll !important;}
+	.ov-a{overflow:auto !important;}
+	.ovx-s{overflow-x:scroll !important;}
+	.ovx-a{overflow-x:auto !important;}
+	.ovy-s{overflow-y:scroll !important;}
+	.ovy-a{overflow-y:auto !important;}
+
+	.cur-a{cursor:auto !important;}
+	.cur-d{cursor:default !important;}
+	.cur-ha{cursor:hand !important;}
+	.cur-hl{cursor:help !important;}
+	.cur-m{cursor:move !important;}
+	.cur-p{cursor:pointer !important;}
+
+	//Box Sizing
+	.bx, .bx-b{box-sizing:border-box !important;}
+	.bx-c{box-sizing:content-box !important;}
+
+	.bxs-n{box-shadow:none !important;}
+
+	.w-a{width:auto !important;}
+	.h-a{height:auto !important;}
+
+	//Font
+	.fw-n{font-weight:normal !important;}
+	.fw-b{font-weight:bold !important;}
+
+	.fs-n{font-style:normal !important;}
+	.fs-i{font-style:italic !important;}
+
+	.fv-n{font-variant:normal !important;}
+	.fv-sc{font-variant:small-caps !important;}
+
+	.ff-s{font-family:serif;}
+	.ff-ss{font-family:sans-serif;}
+	.ff-m{font-family:monospace;}
+	.ff-a{font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;}
+
+	//Text
+	.va-t{vertical-align:top !important;}
+	.va-sup{vertical-align:super !important;}
+	.va-tt{vertical-align:text-top !important;}
+	.va-m{vertical-align:middle !important;}
+	.va-bl{vertical-align:baseline !important;}
+	.va-b{vertical-align:bottom !important;}
+	.va-tb{vertical-align:text-bottom !important;}
+	.va-sub{vertical-align:sub !important;}
+
+	.ta-l{text-align:left !important;}
+	.ta-c{text-align:center !important;}
+	.ta-r{text-align:right !important;}
+	.ta-j{text-align:justify !important;}
+
+	.tov, .tov-e{text-overflow:ellipsis !important;}
+
+	.td-n{text-decoration:none !important;}
+	.td-u{text-decoration:underline !important;}
+	.td-o{text-decoration:overline !important;}
+	.td-l{text-decoration:line-through !important;}
+
+	.ti-{text-indent:-9999px !important;}
+
+	.whs-n{white-space:normal !important;}
+	.whs-nw{white-space:nowrap !important;}
+	.whs-p{white-space:pre !important;}
+
+	.wob-n{word-break:normal !important;}
+	.wob-k{word-break:keep-all !important;}
+	.wob-b{word-break:break-all !important;}
+
+	.wow-nm{word-wrap:normal !important;}
+	.wow-n{word-wrap:none !important;}
+	.wow-b{word-wrap:break-word !important;}
+
+	//Letter-spacing
+	.ls1{letter-spacing:1px}
+	.ls2{letter-spacing:2px}
+	.ls-1{letter-spacing:-1px}
+	.ls-2{letter-spacing:-2px}
+
+	//line-height
+	.lh38{line-height:38px!important}
+	.lh40{line-height:40px!important}
+
+	//Background
+	.bg-n{background:none !important;}
+
+	.bgz-a{background-size:auto !important;}
+	.bgz-ct{background-size:contain !important;}
+	.bgz-co{background-size:cover !important;}
+
+	//Color
+
+	//Table
+	.tbl-a{table-layout:auto !important;}
+	.btn-f{table-layout:fixed !important;}
+
+	//Border
+	.bd-n{border:none !important;}
+	.bdt-n{border-top:none !important;}
+	.bdb-n{border-bottom:none !important;}
+	.bdl-n{border-left:none !important;}
+	.bdr-n{border-right:none !important;}
+
+	//Others
+	.fxd-c{flex-direction:column !important;}
+	.fxd-cr{flex-direction:column-reverse !important;}
+	.fxd-r{flex-direction:row !important;}
+	.fxd-rr{flex-direction:row-reverse !important;}
+
+	.fxw-n{flex-wrap:nowrap !important;}
+	.fxw-w{flex-wrap:wrap !important;}
+	.fxw-wr{flex-wrap:wrap-reverse !important;}
+
+	.jc-c{justify-content:center !important;}
+	.lc-fe{justify-content:flex-end !important;}
+	.jc-fs{justify-content:flex-start !important;}
+	.jc-sa{justify-content:space-around !important;}
+	.jc-sb{justify-content:space-between !important;}
+
+	.op-0{opacity:0 !important;}
+	.op-30{opacity:.3 !important;}
+	.op-50{opacity:.5 !important;}
+	.op-80{opacity:.8 !important;}
+	.op-100{opacity:1 !important;}
+
+	.op-ie{filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);}
+	.op-ms{-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';}
+
+
+//-----------------------------------
+//Box Sizing
+//-----------------------------------
+
+	// fontsize :10	~ 40 , 2++
+	@for $c from 5 through 20{.fz#{$c *2} {font-size:$c*2px !important} }
+	.fz12.all {
+		& *{font-size:12px; display:inline-block; margin-top:-3px;}
+	}
+
+	// width ==
+	@for $c from 0 through 20{.w#{$c *5} {width:$c*5px !important} }//w
+	@for $c from 0 through 10{.w#{$c *100} {width:$c*100px !important} }
+
+
+	// margin : -50 ~ 100 , 5++ ==
+	@for $c from 0 through 10{.m#{$c *5} {margin:$c*5px !important} }//m
+	@for $c from -10 through 20{.ml#{$c *5} {margin-left:$c*5px !important} }//ml
+	@for $c from -10 through 20{.mt#{$c *5} {margin-top:$c*5px !important} }//mt
+	@for $c from -10 through 20{.mr#{$c *5} {margin-right:$c*5px !important} }//mr
+	@for $c from -10 through 20{.mb#{$c *5} {margin-bottom:$c*5px !important} }//mb
+
+	// padding :  -50 ~ 100 , 5++ ==
+	@for $c from 0 through 10{.p#{$c *5} {padding:$c*5px !important} }//p
+	@for $c from 0 through 20{.pl#{$c *5} {padding-left:$c*5px !important} }//pl
+	@for $c from 0 through 20{.pt#{$c *5} {padding-top:$c*5px !important} }//pt
+	@for $c from 0 through 20{.pr#{$c *5} {padding-right:$c*5px !important} }//pr
+	@for $c from 0 through 20{.pb#{$c *5} {padding-bottom:$c*5px !important} }//pb
+
+	.w100p{width: 100% !important}
+
+
+
+//-----------------------------------
+// ShowHide
+//-----------------------------------
+// size 체크
+.pc-show{
+	display:block !important;
+	@include mediaQuery(phone){display:none !important }
+}
+.mo-show{
+	display:none !important;
+	@include mediaQuery(phone){display:block !important }
+}
+
+
+.pc-show-inline{
+	display:inline-block !important;
+	@include mediaQuery(phone){display:none !important }
+}
+
+.mo-show-inline{
+	display:none !important;
+	@include mediaQuery(phone){display:inline-block !important }
+}
+
+
+//device 체크
+html.desktop{
+	.device_pc_show{display:block !important}
+	.device_mo_show{display:none !important}
+}
+
+html.mobile{
+	.device_pc_show{display:none !important}
+	.device_mo_show{display:block !important}
+}
+
+
+
+//==============================================
+// Etc
+//==============================================
+// .date_font{font-size:12px;color:$color-gray-strong;}//날짜 폰트
+.valid_font{display:inline-block; color:#3399ff; } //validation 체크
+.font-b{font-weight:bold !important;}
+.font-n{font-weight:normal !important;}
+
+//말줄임
+.ellipsis{overflow:hidden; display:block; text-overflow:ellipsis; white-space:nowrap;}
+.ellipsis_init{overflow:initial; display:block; text-overflow:initial; white-space:initial;}
+
+//구분 막대
+.txt_bar{position:absolute;content:"";zoom:1;top:7px; left:0; width:1px;height:11px;background-color:#666; }
+
+//링크
+.txt_link{
+	position:relative;
+	&:before{position:absolute; content:""; zoom:1; left:-3px; right:-3px; bottom:2px; height:1px; background-color:#666;}
+}
+
+
+//링크 밑줄
+.underline {position: relative;}
+.underline::after {content:'';height: 1px;position: absolute;bottom: -2px;left: -3px;right: -3px;background: #333;}

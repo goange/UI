@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+/*
+* section.box
+* --------------
+*/
+
+.section{@include clearfix();position:relative; margin-left:20px; margin-right:20px;
+	&.full{margin-left:0;margin-right:0;}
+}
+
+.panel.left{
+	&{
+		.section.no-data,
+		.section.first-create,
+		.section.full-height{
+			height: calc(100vh - (#{$top-height} + 20px));
+
+			@include mediaQuery(phone){
+				height: calc(100vh - (#{$mo-top-height} + 20px));
+			}
+		}
+	}
+	//filterBox 있을때
+	&.has-filterbox{
+		.section.no-data,
+		.section.first-create,
+		.section.full-height{
+			height: calc(100vh - (#{$top-height} + 20px + 350px));
+
+			@include mediaQuery(phone){
+				height: calc(100vh - (#{$mo-top-height} + 20px + 350px));
+			}
+		}
+	}
+}
+
+.panel.right{
+	.page > .section:first-child{padding-top:20px;}
+	.page > .section:last-child{padding-bottom:100px;}
+	.page > .section.no-data,
+	.page > .section.full-height{padding:0;}
+	.section.no-data,
+	.section.full-height{
+		height: calc(100vh - (#{$top-height} + 20px));
+
+		@include mediaQuery(phone){
+			height: calc(100vh - (#{$mo-top-height} + 20px));
+		}
+	}
+}
+
+.panel.top{
+	.section.no-data,
+	.section.full-height{
+		height: calc(100vh - (#{$top-height} + #{$mo-right-topbar-height} ));
+
+		@include mediaQuery(phone){
+			height: calc(100vh - (#{$mo-top-height} + 20px + #{$mo-right-topbar-height}));
+		}
+	}
+}
+
+.filter-box + .panel.top{
+	.section.no-data,
+	.section.full-height{
+		height: calc(100vh - (#{$top-height} + #{$mo-right-topbar-height} + 50px  ));
+
+		@include mediaQuery(phone){
+			height: calc(100vh - (#{$mo-top-height} + 20px + #{$mo-right-topbar-height + 50px }));
+		}
+	}
+}
+
