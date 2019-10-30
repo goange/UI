@@ -1,14 +1,15 @@
 /**
-* UI.layout
+* UI.layout.leftFix
 * -----------------------------------------
 * import : UI
 * Import : UI.mediaQuery
 * -----------------------------------------
 */
-
-UI.layout = (function(){
+UI.layout.leftFix = (function(){
 	var jMap, hMap, cMap, vMap;
 	var setMap, leftbar, rightbar, init;
+
+	var leftFix;
 
 	setMap = function(){
 		jMap ={
@@ -30,9 +31,6 @@ UI.layout = (function(){
 		,vMap = {
 			leftbarToggle : true
 			, rightbarToggle : true
-			// , leftbarToggle_mo : false
-			, leftbarDimm : true
-			, rightbarDimm : true
 		}
 	}//End of setMap
 
@@ -44,9 +42,7 @@ UI.layout = (function(){
 		}
 		, dimm : function(){
 			var $dimm = $('<div class="'+cMap.LEFTBAR_DIMM+'"></div>');
-			if (vMap.leftbarDimm) {
-				$dimm.appendTo(UI.jMap.body);
-			}
+			$dimm.appendTo(UI.jMap.body);
 		}
 		, open : function(){
 			UI.jMap.body.removeClass(cMap.LEFTBAR_CLOSE);
@@ -94,23 +90,6 @@ UI.layout = (function(){
 		}
 	}//End of leftbar
 
-	rightbar2 ={
-		init : function(){
-			rightbar.handler();
-		}
-		, open : function(){
-			UI.jMap.body.addClass(UI.cMap.RIGHTBAR_TOGGLE);
-		}
-		, close : function(){
-			UI.jMap.body.removeClass(UI.cMap.RIGHTBAR_TOGGLE);
-		}
-		, handler : function(){
-			jMap.rightbarCloseBtn.on('click', function(){
-					rightbar.close();
-			});
-		}
-	}//End of rightbar
-
 	rightbar = {
 		init : function(){
 			rightbar.dimm();
@@ -119,9 +98,7 @@ UI.layout = (function(){
 		}
 		, dimm : function(){
 			var $dimm = $('<div class="'+cMap.RIGHTBAR_DIMM+'"></div>');
-			if (vMap.rightbarDimm) {
-				$dimm.appendTo(UI.jMap.body);
-			}
+			$dimm.appendTo(UI.jMap.body);
 		}
 		, open : function(){
 			UI.jMap.body.removeClass(cMap.RIGHTBAR_CLOSE);
@@ -167,7 +144,21 @@ UI.layout = (function(){
 				rightbar.close();
 			});
 		}
-	}//End of leftbar
+	}//End of rightbar
+
+
+	leftFix ={
+		init : function(_param){
+			vMap = {
+				leftbarToggle : true
+				, rightbarToggle : false
+			}
+
+			UI.jMap.body.addClass(cMap.LEFTBAR_CLOSE);
+			UI.jMap.body.addClass(cMap.RIGHTBAR_CLOSE);
+		}
+	} //End of leftFix
+
 
 	init = function(_param){
 		setMap();
@@ -175,10 +166,14 @@ UI.layout = (function(){
 		//공통 & 최초 로드시
 		if(UI.vMap.page.is_firstLoad){
 			if(UI.jMap.leftbar.length >0) {
+
+
 				leftbar.init();
 				rightbar.init();
 
-				UI.jMap.body.removeClass(cMap.MOBILE_INIT)
+				leftFix.init('cover');
+				UI.jMap.body.removeClass(cMap.MOBILE_INIT);
+
 			}
 		}
 	}//End of Init
@@ -189,4 +184,3 @@ UI.layout = (function(){
 		, rightbar : rightbar
 	}
 }());
-

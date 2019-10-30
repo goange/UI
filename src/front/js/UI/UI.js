@@ -48,6 +48,7 @@ UI.template = (function(){
 * - cMap : className 
 * - vMap : Variable Definition
 */
+
 UI = (function(){
 	'use strict';
 
@@ -63,7 +64,7 @@ UI = (function(){
 			, wrapper : $('.wrap')
 			, header : $('.ui-header')
 			, navbar  : $('.ui-navbar ')
-			, sidebar : $('.ui-sidebar')
+			, leftbar : $('.ui-leftbar')
 			, container : $('.ui-container')
 			, content : $('.ui-content')
 			, footer : $('.ui-footer')
@@ -71,9 +72,7 @@ UI = (function(){
 			// , dimm : $('.dimm-layer.close-layer')
 		}
 		, UI.cMap = {
-			RIGHTBAR_OPEN : 'rightbar-open'//x
-			, RIGHTBAR_TOGGLE : 'rightbar-toggle'
-			, RIGHTBAR_TOGGLE_MO : 'rightbar-toggle-mo'//x
+			// RIGHTBAR_TOGGLE : 'rightbar-toggle'
 		}
 		, UI.vMap = {
 			loginFlag : false
@@ -126,7 +125,8 @@ UI = (function(){
 		page.init();
 		UI.mediaQuery.init();
 		UI.plugin.init();
-		UI.layout.init();
+		// UI.layout.init();
+		UI.layout.leftFix.init();
 
 		//메인
 		if(UI.vMap.page.is_main){

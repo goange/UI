@@ -47,7 +47,9 @@
 // Layout
 //------------------------------------
 //Test
-@import "layout/template/layout";
+@import "layout/template/layout.base";
+// @import "layout/template/layout";
+@import "layout/template/layout.leftFix";
 @import "layout/template/layout.skin";
 
 

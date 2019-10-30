@@ -13,7 +13,7 @@ $project-class : 'ui-';
 body{background-color:#fff;}
 
 
-.#{$project-class}header{
+.ui-header{
 	background: skyblue; /* border: 1px solid #000; */ 
 }
 
@@ -21,23 +21,23 @@ body{background-color:#fff;}
 	/* background-color:#fff; */ /* border-bottom:1px solid #D0D0DE; */
 }
 
-.#{$project-class}sidebar{
+.ui-leftbar{
 	background:#f87272; border-right:1px solid #D0D0DE;
 }
 
-.#{$project-class}rightbar { 
+.ui-rightbar { 
 	box-shadow: 0 3px 6px 0 rgba(114, 114, 203, 0.15); background-color: orange;
 }
 
-.#{$project-class}container{
-	> .#{$project-class}content{
+.ui-container{
+	> .ui-content{
 		.content-wrap{
 
 		}
 	}
 }
 
-.#{$project-class}footer{
+.ui-footer{
 	background-color:beige; 
 }
 
@@ -46,51 +46,49 @@ body{background-color:#fff;}
 // Responsive Tablet under
 //======================================
 @include mediaQuery(tablet_under){
-	body.sidebar-toggle-mo{
-		.#{$project-class}sidebar{
+	body.leftbar-close{
+		.ui-leftbar{
+
 		}
 	}
 
-	.#{$project-class}header{
+	.ui-header{
+
 	}
 	
 	.navbar{
 	}
 
-	.#{$project-class}sidebar{
+	.ui-leftbar{
 		
 	}
 
-	.#{$project-class}container {
-		// margin-left: 0;
+	.ui-container {
+
 	}
 
-	.#{$project-class}footer{
+	.ui-footer{
 	}
 }
-
 
 
 //======================================
 // Responsive PC
 //======================================
-//sidebar
-body.sidebar-toggle{
+//leftbar
+body.leftbar-close{
 
-	.#{$project-class}header{
+	.ui-header{
 	}
 
-	.#{$project-class}container{
+	.ui-container{
 	}
 }
 
-body.sidebar-toggle-mo{
-
-}
 
 //---------------------
 //rightbar
-body.rightbar-toggle {
+body.rightbar-close {
 
 }
 

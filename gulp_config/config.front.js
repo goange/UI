@@ -49,6 +49,7 @@ module.exports = function() {
 				, src.js + '/UI.mediaQuery.js'
 				, src.js + '/UI.plugin.js'
 				, src.js + '/UI.layout.js'
+				, src.js + '/UI.layout.leftFix.js'
 				// , src.js + '/UI.template.js'
 			]
 			, destFileName : 'UI.js' //병합 파일명

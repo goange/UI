@@ -4,7 +4,10 @@
 /**
 * layout
 * ------------------
+* leftbar : mo-nav-cover
 */
+
+
 
 
 //======================================
@@ -23,23 +26,19 @@ body{
 		z-index: $zindex-leftbar; 
 		position: fixed; top: 0; bottom: 0; left: 0; 
 		width: $leftbar-width;
-
-		@include transform-translate-x(0);
-		@include layout-transition(transform);
-	}
+		@include layout-transition(left);
+	} 
 
 	.ui-rightbar {
 		z-index: $zindex-rightbar; 
 		position:fixed;top:$header-height; bottom:0; left:initial; right:0;
 		width:$rightbar-width;
-
 		@include layout-transition(right);
-	}
+	} 
 
 	.ui-container{
 		position: relative; 
 		height:100vh; margin-left: $leftbar-width;
-
 		@include layout-transition(margin);
 
 		> .ui-content{
@@ -60,9 +59,23 @@ body{
 }
 
 
+//Nav Cover Type
+body.layout-nav-cover{
+	.ui-header{
+		left: 0;
+	}
+	.ui-container{
+		margin-left: 0;
+	}
+
+	.ui-footer{
+		margin-left: 0;
+	}
+} 
+
 
 //======================================
-// Trigger
+// Body Trigger
 //======================================
 // leftbar-close
 body.leftbar-close{
@@ -72,8 +85,8 @@ body.leftbar-close{
 	}
 
 	.ui-leftbar{
-		@include transform-translate-x(-$leftbar-width);
-		@include layout-transition(transform);
+		left : -$leftbar-width;
+		@include layout-transition(left);
 	}
 
 	.ui-container{
@@ -87,7 +100,7 @@ body.leftbar-close{
 	}
 }
 
-//======================================
+//--------------------------------------
 // rightbar-close
 body.rightbar-close{
 	.ui-rightbar{
@@ -97,10 +110,12 @@ body.rightbar-close{
 }
 
 
+
 //======================================
 // Responsive 
 //======================================
 @include mediaQuery(tablet_under){
+	//Nav Pull Type
 	body{
 		.ui-header{
 			left: $leftbar-width;
@@ -108,7 +123,6 @@ body.rightbar-close{
 
 		.ui-leftbar{
 			z-index:$zindex-leftbar-mo;
-			margin-left: 0;
 		}
 
 		.ui-rightbar{
@@ -123,8 +137,26 @@ body.rightbar-close{
 			margin-left: $leftbar-width;
 		}
 	}
+	
 
-	//======================================
+	//Nav Cover Type
+	body.layout-nav-cover{
+		.ui-header{
+			left: 0;
+		}
+		.ui-container{
+			margin-left: 0;
+		}
+	
+		.ui-footer{
+			margin-left: 0;
+		}
+	} 
+
+
+
+
+	//--------------------------------------
 	// leftbar-close
 	body.leftbar-close{
 		.ui-header{}
@@ -136,7 +168,7 @@ body.rightbar-close{
 		.ui-footer{}
 	}
 
-	//======================================
+	//--------------------------------------
 	// rightbar-close
 	body.rightbar-close{
 		.ui-rightbar{
