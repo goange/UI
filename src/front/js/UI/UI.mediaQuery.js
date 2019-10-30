@@ -7,13 +7,15 @@
 
 UI.mediaQuery = (function(){
 	var init = function(){
-			var xs = Number(UI.breakpoint.xs)
-				, sm = Number(UI.breakpoint.sm)
-				, md = Number(UI.breakpoint.md)
-				, lg = Number(UI.breakpoint.lg)
+			var xs = Number(UI.breakpoint.XS)
+				, sm = Number(UI.breakpoint.SM)
+				, md = Number(UI.breakpoint.MD)
+				, lg = Number(UI.breakpoint.LG)
+				, breakpoint = md
 			;
 
-			var query_breakpoint = "screen and (min-width : 0) and (max-width :"+ md +"px)";
+			var query_breakpoint_under = "screen and (min-width : 0) and (max-width :"+ breakpoint +"px)";
+			var query_breakpoint_upper = "screen and (min-width : "+ Number(breakpoint + 1) +"px)"
 
 			var query_xs = "screen and (min-width : 0) and (max-width :"+ sm +"px)"
 				, query_sm = "screen and (min-width : "+ Number(sm + 1) +"px) and (max-width :"+ md +"px )"
@@ -23,20 +25,21 @@ UI.mediaQuery = (function(){
 
 			//Responsive breakpoint
 			enquire
-				.register(query_breakpoint, {
+				.register(query_breakpoint_under, {
 					match : function() {
 						UI.jMap.html.removeClass('tablet-upper').addClass('tablet-under');
-						UI.breakpoint.is_tabletUnder = true;
-						UI.breakpoint.is_tabletUpper = false;
+						UI.breakpoint.is_under = true;
+						UI.breakpoint.is_upper = false;
 						if(UI.vMap.testFlag) $('header').css('background', 'red');
 					}
-					, unmatch : function() {
+				})
+				.register(query_breakpoint_upper, {
+					match : function() {
 						UI.jMap.html.removeClass('tablet-under').addClass('tablet-upper');
-						UI.breakpoint.is_tabletUnder = false;
-						UI.breakpoint.is_tabletUpper = true;
+						UI.breakpoint.is_under = false;
+						UI.breakpoint.is_upper = true;
 						if(UI.vMap.testFlag) $('header').css('background', 'skyblue');
 					}
-					, destroy : function() {}
 				})
 			;
 
@@ -47,9 +50,9 @@ UI.mediaQuery = (function(){
 						UI.jMap.html.addClass('mo-size');
 						UI.jMap.html.removeClass('tablet-size').removeClass('pc-size');
 						UI.jMap.html.attr('data-breakpoint', 'xs');
-						UI.breakpoint.is_mobileSize = true;
-						UI.breakpoint.is_tabletSize = false;
-						UI.breakpoint.is_pcSize = false;
+						UI.breakpoint.is_mobile = true;
+						UI.breakpoint.is_tablet = false;
+						UI.breakpoint.is_pc = false;
 					}
 					, unmatch : function() {}
 					, destroy : function() {}
@@ -59,9 +62,9 @@ UI.mediaQuery = (function(){
 						UI.jMap.html.addClass('tablet-size');
 						UI.jMap.html.removeClass('pc-size').removeClass('mo-size');
 						UI.jMap.html.attr('data-breakpoint', 'sm');
-						UI.breakpoint.is_mobileSize = false;
-						UI.breakpoint.is_tabletSize = true;
-						UI.breakpoint.is_pcSize = false;
+						UI.breakpoint.is_mobile = false;
+						UI.breakpoint.is_tablet = true;
+						UI.breakpoint.is_pc = false;
 					}
 				})
 				.register(query_md, {
@@ -69,9 +72,9 @@ UI.mediaQuery = (function(){
 						UI.jMap.html.addClass('pc-size');
 						UI.jMap.html.removeClass('mo-size').removeClass('tablet-size');
 						UI.jMap.html.attr('data-breakpoint', 'md');
-						UI.breakpoint.is_mobileSize = false;
-						UI.breakpoint.is_tabletSize = false;
-						UI.breakpoint.is_pcSize = true;
+						UI.breakpoint.is_mobile = false;
+						UI.breakpoint.is_tablet = false;
+						UI.breakpoint.is_pc = true;
 					}
 				})
 				.register(query_lg, {

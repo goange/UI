@@ -88,16 +88,17 @@ UI = (function(){
 		}
 		, UI.breakpoint = {
 			//Bootstrap : xs : 576 , sm : 768 , md : 992 , lg : 1200
-			xs : 576
-			, sm : 720
-			, md : 990
-			, lg : 1600
-
-			, is_mobileSize : false
-			, is_tabletSize : false
-			, is_pcSize : false
-			, is_tabletUnder : false
-			, is_tabletUpper : false
+			XS : 576
+			, SM : 720
+			, MD : 990
+			, LG : 1600
+			//3단계 breakpoint
+			, is_mobile : false
+			, is_tablet : false
+			, is_pc : false
+			//2단게 breakpoint(ex : Navigation show hide )
+			, is_under : false 
+			, is_upper : false
 		}
 	}//End of setMap
 
