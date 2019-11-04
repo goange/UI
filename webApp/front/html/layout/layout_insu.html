@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<title>UI</title>
+<script type="text/javascript" src="../_pub_include/head.js"></script><!-- //Pub Include : head-->
+<script>
+$(document).ready(function() {
+	//init
+	UI.init();
+
+	//Test
+	//Create Profile 버튼 클릭시
+	// UI.layout.rightbar.open();
+
+	//Test Title
+	// $('.navbar-title').text('Template');
+});
+</script>
+</head>
+<!-- 
+	.layout-left-fix
+	.layout-right-fix
+
+	//.nav-both
+	
+	(Default: pc.pull.either)
+	.pull , mo-pull ==> pull.equal
+	.pull , mo-cover   ==> pull (Default)
+	.cover , mo-pull ==> cover
+	.cover , mo-cover ==> cover.equal
+ -->
+
+<body class="ui-mobile-init layout-left-fix">
+
+<!-- wrap -->
+<div class="ui-wrap">
+	<!-- header -->
+	<header class="ui-header">
+		<div class="header-wrap">
+			<div class="navbar">
+				<!-- 
+					btn-leftbar-toggle
+					btn-leftbar-open
+					btn-leftbar-close
+					btn-rightbar-toggle
+					btn-rightbar-open
+					btn-rightbar-close
+				 -->
+				<button type="button" class="btn  btn-white btn-round btn-leftbar-toggle" aria-label="Toggle Nav"></button>
+
+				<button type="button" class="btn  btn-white btn-round btn-rightbar-toggle" aria-label="Toggle Nav"></button>
+				Header navbar
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!-- leftbar -->
+	<aside class="ui-leftbar">
+		<div class="leftbar-wrap">
+			<div class="header">
+				<button type="button" class="btn-leftbar-close" aria-label="leftbar Close"><i class="icon_close_white"></i></button>
+			</div>
+			<div class="body">
+				<div style="height:1000px">leftbar</div>
+				leftbar
+			</div>
+			<div class="footer">
+				
+			</div>
+		</div>
+	</aside>
+	<!-- //leftbar -->
+
+	<!-- container -->
+	<div class="ui-container">
+		<div class="ui-content">
+			<div class="content-wrap">
+				<a href="javascript:UI.layout.rightbar.open();">rightbar Open</a>
+				<!-- <div class="panel top">content.top</div>
+				<div class="panel left">content.left</div>
+				<div class="panel right">content.righ</div>
+				<div class="panel bottom">content.bottom</div> -->
+				<p style="height:1000px;background: red;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat provident dolores aperiam molestias veritatis, modi nesciunt aspernatur, rem eaque maiores, voluptatem facilis quam laudantium consequatur ducimus corporis dolorem quibusdam quas.</p>
+			</div>
+		</div>
+	</div>
+	<!-- //container -->
+
+	<!-- footer -->
+	<footer class="ui-footer">
+		<div class="footer-wrap">Footer</div>
+	</footer>
+	<!-- //footer -->
+
+	<!-- rightbar -->
+	<aside class="ui-rightbar">
+		<div class="rightbar-wrap">
+			<div class="header">
+				<button type="button" class="btn btn-white btn-round btn-rightbar-close" aria-label="Close"></button>
+			</div>
+			<div class="body">
+				Rightbar
+			</div>
+			<div class="footer">
+				
+			</div>
+		</div>
+	</aside>
+	<!-- //rightbar -->
+
+</div>
+<!-- //wrap -->
+
+</body>
+</html>
