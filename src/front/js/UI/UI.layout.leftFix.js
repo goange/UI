@@ -167,12 +167,21 @@ UI.layout.leftFix = (function(){
 		if(UI.vMap.page.is_firstLoad){
 			if(UI.jMap.leftbar.length >0) {
 
-
 				leftbar.init();
 				rightbar.init();
 
 				leftFix.init('cover');
 				UI.jMap.body.removeClass(cMap.MOBILE_INIT);
+
+				var _data=$('body').data('layout-option');
+				// console.log('layout : '+data[0], data[1]);
+
+				// console.log('layout : '+$('body').data('layout-option').type);
+				// console.log('layout : '+$('body').data('layout-option').nav_pc);
+				// console.log('layout : '+$('body').data('layout-option').mo_pc);
+
+				// console.log('test :'+_data[1])
+
 
 			}
 		}

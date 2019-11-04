@@ -21,8 +21,8 @@ $(document).ready(function() {
 </script>
 </head>
 <!-- 
-	.layout-left-fix
-	.layout-right-fix
+	.layout-base-left (Default)
+	.layout-base-right
 
 	//.nav-both
 	
@@ -35,7 +35,11 @@ $(document).ready(function() {
 
 <!-- <body class="ui-mobile-init layout-left-fix"> -->
 <!-- <body class="ui-mobile-init"> -->
-<body class="ui-mobile-init layout-left-fix layout-nav-cover">
+<!-- <body class="ui-mobile-init layout-nav-cover" data-layout="{'type':'left', 'nav-pc' : 'cover' , 'nav-mo' : 'cover'}" data-nav-pc="cover" data-nav-mo="cover"> -->
+<!-- <body class="ui-mobile-init layout-nav-cover" data-layout='{ "type" : 1}' data-nav-pc="cover" data-nav-mo="cover"> -->
+<!-- <body class="ui-mobile-init layout-nav-cover"data-layout-option='{"type" : "left", "nav-pc" : "cover", "nav-mo" : "cover"}'> -->
+<!-- <body class="ui-mobile-init layout-nav-cover"data-layout-option="[{'type' : 'left', 'nav-pc' : 'cover', 'nav-mo' : 'cover'}]"> -->
+<body class="ui-mobile-init layout-nav-cover"data-layout-option="[left-type, pc-cover, mo-cover]">
 
 <!-- wrap -->
 <div class="ui-wrap">
@@ -47,13 +51,14 @@ $(document).ready(function() {
 					btn-leftbar-toggle
 					btn-leftbar-open
 					btn-leftbar-close
+
 					btn-rightbar-toggle
 					btn-rightbar-open
 					btn-rightbar-close
 				 -->
-				<button type="button" class="btn  btn-white btn-round btn-leftbar-toggle" aria-label="Toggle Nav"></button>
+				<button type="button" class="btn-leftbar-toggle" aria-label="Toggle LeftBar"></button>
 
-				<button type="button" class="btn  btn-white btn-round btn-rightbar-toggle" aria-label="Toggle Nav"></button>
+				<button type="button" class="btn-rightbar-toggle" aria-label="Toggle RightBar"></button>
 				Header navbar
 			</div>
 		</div>
@@ -81,7 +86,10 @@ $(document).ready(function() {
 	<div class="ui-container">
 		<div class="ui-content">
 			<div class="content-wrap">
-				<a href="javascript:UI.layout.rightbar.open();">rightbar Open</a>
+				<a href="javascript:UI.layout.leftFix.rightbar.open();">rightbar Open</a> <br>
+				<a href="javascript:UI.layout.leftFix.leftbar.open();">leftbar Open</a> <br>
+				<br>
+				<br>
 				<!-- <div class="panel top">content.top</div>
 				<div class="panel left">content.left</div>
 				<div class="panel right">content.righ</div>
@@ -114,7 +122,7 @@ $(document).ready(function() {
 	<aside class="ui-rightbar">
 		<div class="rightbar-wrap">
 			<div class="header">
-				<button type="button" class="btn btn-white btn-round btn-rightbar-close" aria-label="Close"></button>
+				<button type="button" class="btn-rightbar-close" aria-label="rightbar Close"></button>
 			</div>
 			<div class="body">
 				Rightbar

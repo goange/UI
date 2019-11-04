@@ -137,7 +137,6 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 
 //Close Btn : PC hide
-
 .btn-leftbar-close{
 	display: block;
 	z-index:9999; 
@@ -201,10 +200,11 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 
 //================================
-// mobile-init
+// init
 //================================
-// * TODO :  PC, Mobile 에서 body.rightbar-close 토글 클래스 하나만 가져가는 문제로 인한 모바일 초기 튐 현상 방지
-
+// * PC, Mobile 에서 body.rightbar-close 토글 클래스 하나만 가져가는 문제로 인한 모바일 초기 튐 현상 방지
+//----------------------------
+// mobile init
 @include mediaQuery(tablet_under){
 	body.ui-mobile-init{
 		.ui-header{
@@ -232,12 +232,44 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 
 //----------------------------
-body.layout-left-fix{
-
+// leftFix
+body[data-layout-base="left"]{
+// body.layout-left-fix{
 	&.ui-mobile-init{
 		.ui-rightbar{
 			right : -$rightbar-width;
 		}
 	}
+}
 
+//----------------------------
+// leftFix cover
+body.layout-nav-cover{
+	&.ui-mobile-init{
+		.ui-leftbar{
+			left : -$leftbar-width;
+		}
+	}
+}
+
+
+
+//---------------------------------------
+//TEST
+// body[data-layout-option *="'type' : 'left'"]{
+body[data-layout-option *='"type" : "left"'] {
+	background-color: #000;
+}
+body[data-layout-option *='"nav-pc" : "cover"'] {
+	// background-color: #000;
+	color:red;
+}
+/* 
+body[data-layout-option *='"type" : "left"'] {
+	background-color: #000;
+} */
+
+body[data-layout-option *="left-type"] {
+	// background-color: #000;
+	color:red;
 }

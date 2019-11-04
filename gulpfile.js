@@ -166,13 +166,17 @@ var del = require('del') //제거
 		return gulp
 			.src(config.front.js.srcFileList)
 			.pipe(concat(config.front.js.destFileName))
-			/*.pipe(uglify({
-				mangle : true, //flase : 알파벳 한 글자 압축 설정
+			.pipe(uglify({
+				mangle : true, //false : 알파벳 한 글자 압축 설정
 				preserveComments : 'all' // all or some
-			}))*/
+			}))
 			.pipe(gulp.dest(config.front.js.dest))
 		;
 	});
+
+
+
+
 
 
 /**
