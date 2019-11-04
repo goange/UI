@@ -180,7 +180,8 @@ UI.layout.leftFix = (function(){
 				// console.log('layout : '+$('body').data('layout-option').nav_pc);
 				// console.log('layout : '+$('body').data('layout-option').mo_pc);
 
-				// console.log('test :'+_data[1])
+				console.log('test :'+_data['type'])
+				console.log('test :'+_data.type)
 
 
 			}
