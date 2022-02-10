@@ -22,7 +22,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^2.1.1",
     "gulp-watch": "^4.3.9",
-    "node-sass": "^4.10.0",
+    "node-sass": "^7.0.0",
     "preen": "^1.2.0",
     "run-sequence": "^1.2.2"
   },
